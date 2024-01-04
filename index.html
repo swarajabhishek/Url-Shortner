@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #shorten-form {
+            margin-top: 20px;
+        }
+
+        #shortened-link {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+    <title>Link Shortener</title>
+</head>
+<body>
+    <h1>Link Shortener</h1>
+    <h2>
+    <form id="shorten-form">
+        <label for="original-link">Enter your link:</label>
+        <input type="url" id="original-link" required>
+       <h3> <button type="button" onclick="shortenLink()">Shorten</button></h3>
+    </form>
+
+    <div id="shortened-link"></div>
+  </h2>
+    <script>
+        function shortenLink() {
+            const originalLink = document.getElementById('original-link').value;
+            
+            // For simplicity, generating a random short code
+            const shortCode = Math.random().toString(36).substring(2, 8);
+
+            const shortenedLink = `https://yourdomain.com/${shortCode}`;
+
+            document.getElementById('shortened-link').innerHTML = `Shortened Link: <a href="${shortenedLink}" target="_blank">${shortenedLink}</a>`;
+        }
+    </script>
+</body>
+</html>
